@@ -1,0 +1,16 @@
+answer question 1
+
+🗂 Structure
+Flat file systems store data in a single file, often in plain text formats like CSV or TSV. Each line typically represents a record, and fields are separated by delimiters. There’s no enforced schema, and structure is implicit. Relational databases, on the other hand, organize data into multiple tables with defined columns, data types, and constraints. These tables are linked using keys, and the structure is explicitly defined through a schema.
+
+🔁 Data Redundancy
+Flat files often suffer from high data redundancy. Since there’s no normalization, the same data (e.g., customer name or product ID) may be repeated across many records. Relational databases reduce redundancy through normalization. Data is split into related tables, and repeated values are replaced with references (foreign keys), minimizing duplication.
+
+🔗 Relationships
+Flat file systems do not support relationships natively. If you want to link data (e.g., customers to orders), you must manually manage references, which is error-prone and hard to maintain. Relational databases are designed to handle relationships. You can define one-to-many, many-to-many, and hierarchical relationships using primary and foreign keys, and query them using JOIN operations.
+
+🧪 Example Usage
+Flat files are suitable for simple tasks like configuration files, logs, or exporting/importing data between systems. They’re easy to read and write but limited in functionality. Relational databases are used in complex systems like banking, hospital management, e-commerce, and ERP platforms where data integrity, scalability, and multi-user access are critical.
+
+⚠️ Drawbacks
+Flat file systems lack features like indexing, concurrency control, and data integrity enforcement. They’re not scalable and can become inconsistent with large or multi-user datasets. Relational databases require careful design and setup. They introduce complexity and overhead, especially for small or temporary tasks. However, they offer robustness, scalability, and powerful querying capabilities.
