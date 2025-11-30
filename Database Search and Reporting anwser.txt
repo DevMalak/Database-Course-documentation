@@ -16,3 +16,20 @@ Flat files are suitable for simple tasks like configuration files, logs, or expo
 Flat file systems lack features like indexing, concurrency control, and data integrity enforcement. They’re not scalable and can become inconsistent with large or multi-user datasets. Relational databases require careful design and setup. They introduce complexity and overhead, especially for small or temporary tasks. However, they offer robustness, scalability, and powerful querying capabilities.
 
 answer question 2 (DIAGRAM)
+
+
+answer question 3
+
+Roles in a database system
+
+System analyst: Translates business needs into system requirements and data flows; collaborates across stakeholders.
+
+Database designer: Defines the data model, entities, relationships, constraints, and overall schema to meet requirements.
+
+Database developer: Implements schema objects, queries, views, triggers, functions, and performance tuning across environments.
+
+DBA (admin): Authorizes access, monitors usage, ensures backups/recovery, capacity planning, and availability.
+
+Application developer: Integrates applications with the database via ORM/SQL, designs APIs, and ensures transactional correctness.
+
+BI developer: Builds ETL/ELT pipelines, semantic models, dashboards, and analytics artifacts on top of curated data.
