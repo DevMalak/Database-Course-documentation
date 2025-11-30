@@ -33,3 +33,96 @@ DBA (admin): Authorizes access, monitors usage, ensures backups/recovery, capaci
 Application developer: Integrates applications with the database via ORM/SQL, designs APIs, and ensures transactional correctness.
 
 BI developer: Builds ETL/ELT pipelines, semantic models, dashboards, and analytics artifacts on top of curated data.
+
+answer question 4
+
+1. Types of Databases
+Relational vs Non-Relational (e.g., MongoDB, Cassandra)
+
+Relational databases store data in structured tables with rows and columns and use SQL for queries.
+Non-relational databases store data in flexible formats such as documents, key-value pairs, graphs, or wide-column models (e.g., MongoDB and Cassandra).
+Centralized vs Distributed vs Cloud Databases
+Centralized databases store all data in one location.
+Distributed databases store data across multiple servers or locations.
+Cloud databases are hosted on cloud platforms and managed by providers like AWS, Azure, or Google Cloud.
+
+Use case examples
+
+Relational: banking systems, inventory, ERP.
+Non-relational: IoT, social media feeds, analytics.
+Centralized: small business applications.
+Distributed: global applications requiring high availability.
+Cloud databases: scalable web apps, SaaS platforms.
+
+2. Cloud Storage and Databases
+What is Cloud Storage and how does it relate to databases?
+
+Cloud storage is remote storage for files, backups, and unstructured data. It relates to databases because it often stores large objects or backups while the database stores structured metadata about those objects.
+
+Advantages of using cloud-based databases
+
+Automatic backups, high availability, easy scaling, no hardware maintenance, global accessibility.
+
+Disadvantages of using cloud-based databases
+
+Higher long-term cost, possible latency, dependency on internet connection, provider lock-in, limited control over hardware.
+
+3. Database Engines and Languages
+What is a Database Engine?
+
+A database engine is the underlying software responsible for storing, retrieving, and processing data, executing queries, and managing transactions.
+
+Examples: SQL Server, MySQL, Oracle, PostgreSQL
+
+SQL Server uses the SQL Server Engine.
+MySQL uses engines such as InnoDB.
+Oracle uses the Oracle Database Engine.
+PostgreSQL uses the PostgreSQL Engine.
+
+What languages do they use? (e.g., T-SQL, PL/SQL, ANSI SQL)
+SQL Server uses T-SQL.
+Oracle uses PL/SQL.
+PostgreSQL uses PL/pgSQL (along with standard SQL).
+MySQL uses a dialect based on ANSI SQL.
+
+Is there a relationship between the engine and the language?
+Yes. Each engine supports standard SQL but also provides its own extended dialect for procedures, triggers, and system functions.
+
+Can one language work across different engines?
+
+Basic SQL works across engines, but engine-specific languages (such as T-SQL or PL/SQL) do not work across systems without rewriting.
+
+4. Can We Transfer a Database Between Engines?
+Is it possible to migrate a database from SQL Server to MySQL, or Oracle to PostgreSQL?
+
+Yes, migration is possible, but it requires careful conversion.
+
+What are the challenges of engine-to-engine migration?
+
+Differences in data types, SQL dialects, stored procedures, triggers, indexing methods, and vendor-specific features.
+
+What should we consider before transferring (data types, triggers, stored procedures, etc.)?
+
+You must evaluate data types, rewrite stored procedures, adjust triggers, modify constraints, update indexing strategies, and confirm application compatibility.
+
+5. Logical vs. Physical Schema
+What is the Logical Schema in database design?
+
+It is the conceptual structure describing entities, attributes, and relationships, independent of physical storage.
+
+What is the Physical Schema?
+
+It is the actual implementation of the database, including tables, data types, indexes, and storage details.
+
+What’s the difference between them?
+
+The logical schema describes what the data represents, while the physical schema describes how the data is stored and optimized.
+
+Why is it important to understand both?
+
+Understanding both ensures accurate data modeling (logical) and efficient performance and storage (physical).
+
+Example: Show how one entity (e.g., Student) would appear in both logical and physical schemas
+
+Logical schema: Student has attributes such as StudentID, FirstName, LastName, Email, DateOfBirth, and Major.
+Physical schema: A table named Students with defined data types (e.g., INT for StudentID, VARCHAR for names), constraints (PRIMARY KEY, UNIQUE), and optional indexes.
