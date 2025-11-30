@@ -14,3 +14,5 @@ Flat files are suitable for simple tasks like configuration files, logs, or expo
 
 ⚠️ Drawbacks
 Flat file systems lack features like indexing, concurrency control, and data integrity enforcement. They’re not scalable and can become inconsistent with large or multi-user datasets. Relational databases require careful design and setup. They introduce complexity and overhead, especially for small or temporary tasks. However, they offer robustness, scalability, and powerful querying capabilities.
+
+answer question 2 (DIAGRAM)
