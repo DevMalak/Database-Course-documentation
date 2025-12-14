@@ -1,5 +1,5 @@
-create database company;
-use company
+create database company2;
+use company2
 create table employee(
 SSN int primary key identity (1,1),
 Bdate date,
@@ -8,7 +8,6 @@ firstname varchar(20) not null,
 lastname varchar(30) not null,
 superid int,
 foreign key(superid) references employee (SSN),
-
 )
 create table department(
 Dnumber int primary key identity (1,1),
@@ -20,14 +19,12 @@ foreign key(mgrssn) references employee(SSN),
 alter table employee
 add Dnum int,
 foreign key(Dnum) references department (Dnumber)
-
 create table Departmentlocation(
 locations varchar(50) not null,
 Dnum int,
 primary key (locations,Dnum),
 foreign key(Dnum) references Department (Dnumber)
 )
-
 create table project(
 pnumber int primary key identity (1,1),
 pname varchar(30) not null,
@@ -41,12 +38,14 @@ Bdate date,
 gender bit default(0),
 Dname varchar(30) not null,
 DSSN int,
+primary key(Dname,DSSN),
 foreign key(DSSN) references employee(SSN)
 )
 create table mywork(
 pnum int,
 workssn int,
 workinghours decimal(4,1),
+primary key(pnum,workssn),
 foreign key (pnum) references project (pnumber),
 foreign key (workssn) references employee (ssn)
 );
@@ -58,7 +57,7 @@ INSERT INTO department(Dname, hiredate) VALUES
 ('Operations', '2010-09-30');
 select*from department;
 INSERT INTO employee (Bdate, gender, firstname, lastname) VALUES
-('1975-01-15', 1, 'Ahmed', 'Al-Sayed'),   
+('1975-01-15', 1, 'Ahmed', 'Al-Sayed'),   -- Top manager
 ('1982-07-10', 0, 'Fatima', 'Al-Zahrani'),
 ('1990-03-22', 1, 'Omar', 'Al-Masri'),
 ('1995-12-05', 0, 'Sara', 'Khaled'),
