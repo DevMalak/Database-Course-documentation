@@ -1,12 +1,13 @@
 ﻿create database college2;
 use college2
--- جدول الأقسام
+
+
 CREATE TABLE department (
     D_id INT PRIMARY KEY IDENTITY(1,1),
     D_Name NVARCHAR(20) NOT NULL
 );
 
--- جدول أعضاء الهيئة التدريسية
+
 CREATE TABLE faculty (
     F_id INT PRIMARY KEY IDENTITY(1,1),
     F_Name NVARCHAR(20) NOT NULL,
@@ -16,7 +17,7 @@ CREATE TABLE faculty (
     FOREIGN KEY (D_id) REFERENCES department(D_id)
 );
 
--- جدول السكن
+
 CREATE TABLE hostel (
     h_id INT PRIMARY KEY IDENTITY(1,1),
     h_Name NVARCHAR(20) NOT NULL,
@@ -26,7 +27,7 @@ CREATE TABLE hostel (
     no_of_seats INT NOT NULL
 );
 
--- جدول الطلاب
+
 CREATE TABLE student (
     s_id INT PRIMARY KEY IDENTITY(1,1),
     FName NVARCHAR(20) NOT NULL,
@@ -41,7 +42,6 @@ CREATE TABLE student (
     FOREIGN KEY (h_id) REFERENCES hostel(h_id)
 );
 
--- جدول المقررات
 CREATE TABLE course (
     c_id INT PRIMARY KEY IDENTITY(1,1),
     c_Name NVARCHAR(20) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE course (
     FOREIGN KEY (D_id) REFERENCES department(D_id)
 );
 
--- جدول المواد
+
 CREATE TABLE subject (
     subj_id INT PRIMARY KEY IDENTITY(1,1),
     subj_Name NVARCHAR(20) NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE subject (
     FOREIGN KEY (F_id) REFERENCES faculty(F_id)
 );
 
--- جدول الامتحانات
+
 CREATE TABLE exam (
     exam_code INT PRIMARY KEY IDENTITY(1,1),
     room VARCHAR(20) NOT NULL,
@@ -68,7 +68,6 @@ CREATE TABLE exam (
     FOREIGN KEY (D_id) REFERENCES department(D_id)
 );
 
--- جدول الطالب-الامتحان
 CREATE TABLE student_exam (
     exam_code INT,
     s_id INT,
@@ -77,7 +76,6 @@ CREATE TABLE student_exam (
     FOREIGN KEY (s_id) REFERENCES student(s_id)
 );
 
--- جدول الطالب-المقرر
 CREATE TABLE student_course (
     c_id INT,
     s_id INT,
@@ -86,7 +84,6 @@ CREATE TABLE student_course (
     FOREIGN KEY (s_id) REFERENCES student(s_id)
 );
 
--- جدول الطالب-المادة
 CREATE TABLE student_subject (
     subj_id INT,
     s_id INT,
@@ -95,82 +92,80 @@ CREATE TABLE student_subject (
     FOREIGN KEY (s_id) REFERENCES student(s_id)
 );
 
--- إدخال البيانات في department
+
 INSERT INTO department (D_Name) VALUES
 ('Computer Engineering'),
 ('Info Tech'),
 ('Business Admin');
 SELECT * FROM department;
 
--- إدخال البيانات في faculty
+
 INSERT INTO faculty (F_Name, mobile_numb, salary, D_id) VALUES
 ('Ahmed Ali', '0791111111', 3500.00, 1),
 ('Sara Hosain', '0792222222', 3200.00, 2),
 ('Mohammad Saleh', '0793333333', 5300.00, 3);
 SELECT * FROM faculty;
 
--- إدخال البيانات في hostel
 INSERT INTO hostel (h_Name, city, h_state, pin_code, no_of_seats) VALUES
 ('Al Noor Hostel', 'Alrustaq', 'Alrustaq', '11118', 200),
 ('Al Amal Hostel', 'Salalah', 'Salalah', '21110', 150),
 ('Al HOOR Hostel', 'Sohar', 'Sohar', '13110', 180);
 SELECT * FROM hostel;
 
--- إدخال البيانات في student
+
 INSERT INTO student (FName, LName, phone_numb, DOB, D_id, F_id, h_id) VALUES
 ('Omar', 'Jasim', '97783436', '2002-05-15', 1, 1, 1),
 ('Lina', 'Ahmad', '97043436', '2001-08-20', 2, 2, 2),
 ('Yousef', 'Khaled', '97789646', '2003-02-10', 3, 3, 3);
 SELECT * FROM student;
 
--- إدخال البيانات في course
+
 INSERT INTO course (c_Name, duration, D_id) VALUES
 ('Database Systems', 4, 1),
 ('Network Security', 3, 2),
 ('Business Management', 4, 3);
 SELECT * FROM course;
 
--- إدخال البيانات في subject
+
 INSERT INTO subject (subj_Name, F_id) VALUES
 ('SQL Programming', 1),
 ('Cyber Security', 2),
 ('Marketing Basics', 3);
 SELECT * FROM subject;
 
--- إدخال البيانات في exam
+
 INSERT INTO exam (room, exam_Date, exam_time, D_id) VALUES
 ('Lab 1', '2025-01-10', '10:00', 1),
 ('Room 204', '2025-01-12', '12:00', 2),
 ('Hall A', '2025-01-15', '09:00', 3);
 SELECT * FROM exam;
+SELECT s_id, FName, LName FROM student;
+SELECT exam_code, room FROM exam;
 
--- جدول الطالب-الامتحان
 INSERT INTO student_exam (exam_code, s_id) VALUES
-(1, 1),                                            
-(2, 2),                                                    
-(3, 3);                                                       
+(1, 300047),
+(2, 300048),
+(3, 300049);
 
+                                     
 SELECT * FROM student_exam;
--- جدول الطالب-المقرر
+
 INSERT INTO student_course (c_id, s_id) VALUES
-(1, 1),  
-(2, 2), 
-(3, 3); 
+(1, 300047),
+(2, 300048),
+(3, 300049);
+
 
 SELECT * FROM student_course;
 
 INSERT INTO student_subject (subj_id, s_id) VALUES
-(1, 1),  
-(2, 2), 
-(3, 3);  
+(1, 300047),
+(2, 300048),
+(3, 300049);
+  
 
 SELECT * FROM student_subject;
-ALTER TABLE student
-ADD enrollment_date DATE,
-    status NVARCHAR(20),
-    gpa DECIMAL(3,2),
-    program_id INT,
-    advisor NVARCHAR(50);
+
 
     -- Q1: Display all student records
 SELECT * FROM student;
